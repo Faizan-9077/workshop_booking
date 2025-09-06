@@ -17,3 +17,15 @@
     padding-top: 5em;
     padding-bottom: 5em;
 }
+
+/* Override for login page to prevent scrolling */
+body.login-page {
+    overflow: hidden !important;
+    height: 100vh !important;
+}
+
+body.login-page .base-content {
+    overflow: hidden !important;
+    height: 100vh !important;
+    padding: 0 !important;
+}
