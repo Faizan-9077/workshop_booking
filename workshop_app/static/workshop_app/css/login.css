@@ -1,0 +1,56 @@
+/* Login Page Styles */
+
+/* Prevent scrolling on login page */
+body {
+    overflow: hidden !important;
+    height: 100vh !important;
+}
+
+.base-content {
+    overflow: hidden !important;
+    height: 100vh !important;
+    padding: 0 !important;
+}
+
+/* Desktop/laptop navbar brand positioning */
+@media (min-width: 992px) {
+    .navbar-brand {
+        margin-left: 40px !important;
+    }
+}
+
+/* Mobile-specific navbar brand positioning */
+@media (max-width: 991.98px) {
+    .navbar-brand {
+        margin-left: 20px !important;
+    }
+}
+
+/* For very small screens */
+@media (max-width: 576px) {
+    .navbar-brand {
+        margin-left: 15px !important;
+    }
+}
+
+.form-control:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+}
+
+.input-group-text {
+    border-color: #dee2e6;
+}
+
+.card {
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+}
+
+.btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
