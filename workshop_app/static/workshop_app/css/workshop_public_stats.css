@@ -1,6 +1,4 @@
-/* Public Statistics page responsive tweaks */
 
-/* Enable sticky sidebar only on md and up to avoid crowding on phones */
 @media (min-width: 768px) {
   .stats-page .filters-card {
     position: sticky;
@@ -13,7 +11,6 @@
   margin: 0;
 }
 
-/* Only size action buttons explicitly, not every button */
 .stats-page .filters-card .btn-submit,
 .stats-page .filters-card .btn-download {
   width: auto;
@@ -28,7 +25,6 @@
   gap: 0;
 }
 
-/* Add small gap only on tablets/phones to avoid wrapping on desktop */
 @media (max-width: 991.98px) {
   .stats-page .toolbar {
     gap: 0.5rem;
@@ -44,7 +40,6 @@
   vertical-align: middle;
 }
 
-/* Small screens */
 @media (max-width: 767.98px) {
   .stats-page .container-fluid {
     padding-left: 0.5rem;
@@ -81,13 +76,11 @@
     font-size: 0.9rem;
   }
 
-  /* Cards breathing room */
   .stats-page .card {
     border-radius: 0.5rem;
   }
 }
 
-/* Make paginator include stack on small screens */
 @media (max-width: 575.98px) {
   .stats-page .paginator-container {
     margin-bottom: 0.75rem;

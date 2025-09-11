@@ -1,4 +1,3 @@
-/* Edit Workshop Type page styles */
 
 .ewt-page .form-card {
   max-width: 900px;
@@ -30,7 +29,6 @@
   }
 }
 
-/* Textarea sizing for better mobile experience */
 .ewt-page textarea.form-control {
   min-height: 120px;
 }
@@ -42,7 +40,7 @@
   }
 }
 
-/* Add breathing room in attachments and before Save */
+
 .ewt-page .inline {
   padding-top: 0.25rem;
   padding-bottom: 0.5rem;

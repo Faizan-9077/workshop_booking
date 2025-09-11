@@ -84,12 +84,12 @@
     <script type="text/javascript">
         $(function () {
             $(".inline.{{ form_file.prefix }}").formset({
-                prefix: "{{ form_file.prefix }}", // The form prefix for your django formset
-                addCssClass: "btn btn-md btn-primary bordered inline-form-add", // CSS class applied to the add link
-                deleteCssClass: "hidden", // CSS class applied to the delete link
-                addText: 'Add another attachment', // Text for the add link
+                prefix: "{{ form_file.prefix }}",
+                addCssClass: "btn btn-md btn-primary bordered inline-form-add",
+                deleteCssClass: "hidden",
+                addText: 'Add another attachment',
                 deleteText: '',
-                formCssClass: 'inline-form' // CSS class applied to each form in a formset
+                formCssClass: 'inline-form'
             })
         });
     </script>

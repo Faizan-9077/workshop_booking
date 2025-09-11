@@ -1,6 +1,4 @@
-/**
- * Footer Styles
- */
+
 .navbar {
     z-index: 1000;
 }
@@ -18,7 +16,6 @@
     padding-bottom: 5em;
 }
 
-/* Override for login page to prevent scrolling */
 body.login-page {
     overflow: hidden !important;
     height: 100vh !important;

@@ -1,4 +1,3 @@
-/* View Profile page styles */
 
 .vp-page .profile-card,
 .vp-page .workshops-card,
@@ -23,7 +22,6 @@
   margin-bottom: 0.75rem;
 }
 
-/* Tidy form controls */
 .vp-page input.form-control,
 .vp-page select.form-control,
 .vp-page textarea.form-control {
@@ -31,14 +29,12 @@
   padding: 0.5rem 0.75rem;
 }
 
-/* Action buttons row */
 .vp-page .actions {
   display: flex;
   gap: 0.75rem;
   flex-wrap: wrap;
 }
 
-/* Larger action buttons */
 .vp-page .actions .btn {
   padding: 0.6rem 1.2rem;
   font-size: 1rem;
