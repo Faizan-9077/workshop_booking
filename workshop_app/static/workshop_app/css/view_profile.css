@@ -1,0 +1,54 @@
+/* View Profile page styles */
+
+.vp-page .profile-card,
+.vp-page .workshops-card,
+.vp-page .form-card {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.vp-page .table th,
+.vp-page .table td {
+  vertical-align: middle;
+}
+
+.vp-page .table th {
+  width: 30%;
+  color: #6c757d;
+  font-weight: 600;
+}
+
+.vp-page .section-title {
+  margin-top: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Tidy form controls */
+.vp-page input.form-control,
+.vp-page select.form-control,
+.vp-page textarea.form-control {
+  font-size: 0.95rem;
+  padding: 0.5rem 0.75rem;
+}
+
+/* Action buttons row */
+.vp-page .actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* Larger action buttons */
+.vp-page .actions .btn {
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+}
+
+@media (min-width: 768px) {
+  .vp-page .actions .btn { min-width: 180px; }
+}
+
+@media (max-width: 767.98px) {
+  .vp-page .actions .btn { width: 100%; margin-bottom: 0.5rem; }
+}
+

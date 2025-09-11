@@ -2,81 +2,91 @@
 
 {% block title %} Profile {% endblock %}
 
+{% block extra-dependencies %}
+    {{ block.super }}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'workshop_app/css/view_profile.css' %}">
+{% endblock %}
+
 {% csrf_token %}
 {% block content %}
 
-    <div class="container">
+    <div class="container vp-page">
         {% if Workshops %}
-            <table class="table table-bordered">
-                <tr>
-                    <th><label for="id_first_name"><h5>First name:</h5></label></th>
-                    <th><label for="id_first_name"><h5>{{ coordinator_profile.user.first_name }}</h5></label></th>
-                </tr>
-                <tr>
-                    <th><label for="id_last_name"><h5>Last name:</h5></label></th>
-                    <th><label for="id_last_name"><h5>{{ coordinator_profile.user.last_name }}</h5></label></th>
-                </tr>
-                <tr>
-                    <th><label for="id_email"><h5>Email:</h5></label></th>
-                    <th><label for="id_email"><h5>{{ coordinator_profile.user.email }}</h5></label></th>
-                </tr>
-                <tr>
-                    <th><label for="id_institute"><h5>Institute:</h5></label></th>
-                    <th><label for="id_institute"><h5>{{ coordinator_profile.user.profile.institute }}</h5></label></th>
-                </tr>
-                <tr>
-                    <th><label for="id_phone_number"><h5>Phone Number:</h5></label></th>
-                    <th><label for="id_phone_number"><h5>{{ coordinator_profile.user.profile.phone_number }}</h5></label>
-                    </th>
-                </tr>
-                <tr>
-                    <th><label for="id_department"><h5>Department:</h5></label></th>
-                    <th><label for="id_department"><h5>{{ coordinator_profile.user.profile.department }}</h5></label></th>
-                </tr>
-                <tr>
-                    <th><label for="id_location"><h5>Location:</h5></label></th>
-                    <th><label for="id_location"><h5>{{ coordinator_profile.user.profile.location }}</h5></label></th>
-                </tr>
-                <tr>
-                    <th><label for="id_position"><h5>Position:</h5></label></th>
-                    <th><label for="id_position"><h5>{{ coordinator_profile.user.profile.position }}</h5></label></th>
-                </tr>
-            </table>
+            <div class="card profile-card shadow-sm">
+                <div class="card-header section-title">
+                    <h5 class="m-0">Profile</h5>
+                </div>
+                <div class="card-body p-0">
+                    <table class="table table-striped mb-0">
+                        <tr>
+                            <th>First name:</th>
+                            <td>{{ coordinator_profile.user.first_name }}</td>
+                        </tr>
+                        <tr>
+                            <th>Last name:</th>
+                            <td>{{ coordinator_profile.user.last_name }}</td>
+                        </tr>
+                        <tr>
+                            <th>Email:</th>
+                            <td>{{ coordinator_profile.user.email }}</td>
+                        </tr>
+                        <tr>
+                            <th>Institute:</th>
+                            <td>{{ coordinator_profile.user.profile.institute }}</td>
+                        </tr>
+                        <tr>
+                            <th>Phone Number:</th>
+                            <td>{{ coordinator_profile.user.profile.phone_number }}</td>
+                        </tr>
+                        <tr>
+                            <th>Department:</th>
+                            <td>{{ coordinator_profile.user.profile.department }}</td>
+                        </tr>
+                        <tr>
+                            <th>Location:</th>
+                            <td>{{ coordinator_profile.user.profile.location }}</td>
+                        </tr>
+                        <tr>
+                            <th>Position:</th>
+                            <td>{{ coordinator_profile.user.profile.position }}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
             <br>
-
-            <div class="container">
-            <h2>Workshop Details</h2>
-            <table class="table table-bordered">
-            <tr>
-                <th><label for="id_instructor_name">Instructor name</label></th>
-                <th><label for="id_workshop_date">Workshop date</label></th>
-                <th><label for="id_workshop_type">Workshop type</label></th>
-            </tr>
-            {% for workshop in Workshops %}
-                {% if workshop.instructor %}
-                    <tr>
-                        <td><label for="id_instructor_name">{{ workshop.instructor }}
-                        </label></td>
-                        <td><label for="id_workshop_date">{{ workshop.date }}</label>
-                        </td>
-                        <td><label for="id_workshop_type">{{ workshop.workshop_type }}</label>
-                        </td>
-                    </tr>
-                {% else %}
-                    <tr>
-                        <td><span class="badge badge-warning">Pending</span></td>
-                        <td><label for="id_workshop_date">{{ workshop.date }}</label>
-                        </td>
-                        <td><label for="id_workshop_type">{{ workshop.workshop_type }}</label>
-                        </td>
-                    </tr>
-                {% endif %}
-            {% endfor %}
-            </table>
+            <div class="card workshops-card shadow-sm">
+                <div class="card-header section-title">
+                    <h5 class="m-0">Workshop Details</h5>
+                </div>
+                <div class="card-body p-0">
+                    <table class="table table-striped mb-0">
+                        <tr>
+                            <th>Instructor name</th>
+                            <th>Workshop date</th>
+                            <th>Workshop type</th>
+                        </tr>
+                        {% for workshop in Workshops %}
+                            {% if workshop.instructor %}
+                                <tr>
+                                    <td>{{ workshop.instructor }}</td>
+                                    <td>{{ workshop.date }}</td>
+                                    <td>{{ workshop.workshop_type }}</td>
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    <td><span class="badge bg-warning text-dark">Pending</span></td>
+                                    <td>{{ workshop.date }}</td>
+                                    <td>{{ workshop.workshop_type }}</td>
+                                </tr>
+                            {% endif %}
+                        {% endfor %}
+                    </table>
+                </div>
             </div>
             <br><br>
         {% else %}
-            <form action="" method="post">
+            <form action="" method="post" class="form-card">
               {% csrf_token %}
                 <div class="row justify-content-center form-group">
                     <div class="col-md-6">
@@ -116,10 +126,11 @@
                             </table>
                             <br>
                         </fieldset>
-                        <button class="btn btn-success btn-lg" type="submit">
+                        <div class="actions">
+                        <button class="btn btn-success btn-sm" type="submit">
                             <i class="fa fa-pencil-square-o"></i>&nbsp;Update</button>
-                        <a href="{% url 'workshop_app:index' %}" class="btn btn-primary btn-lg">Cancel
-                        </a>
+                        <a href="{% url 'workshop_app:index' %}" class="btn btn-primary btn-sm">Cancel</a>
+                        </div>
                     </form>
                     </div>
                 </div>
