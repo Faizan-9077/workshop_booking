@@ -12,22 +12,36 @@
   vertical-align: middle;
 }
 
+/* Disable sticky header to avoid overlap issues on large screens */
 @media (min-width: 992px) {
   .wtl-page .table thead th {
-    position: sticky;
-    top: 70px; /* below fixed navbar */
-    background: #fff;
-    z-index: 1;
+    position: static;
+    top: auto;
+    z-index: auto;
   }
 
   .wtl-page .header-row {
-    position: sticky;
-    top: 70px;
-    z-index: 2;
-    background: #fff;
+    position: static;
+    top: auto;
+    z-index: auto;
+    background: transparent;
     padding-top: 0.5rem;
   }
+
+  /* Center headers and cells on wide screens */
+  .wtl-page .table thead th,
+  .wtl-page .table tbody td {
+    text-align: center;
+  }
 }
+
+/* Ensure table rows don't overlap header on wide screens */
+.wtl-page .table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.wtl-page .table thead th { box-shadow: none; }
 
 .wtl-page .table thead th,
 .wtl-page .table tbody td {
