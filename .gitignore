@@ -44,6 +44,8 @@ db.sqlite3
 
 #images/gif
 *.png
+!screenshots/*.png
+
 *.gif
 
 #virtual environment
