@@ -1,0 +1,27 @@
+/* Add Workshop Type page styles */
+
+.awt-page .form-card {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.awt-page .form-label {
+  font-weight: 600;
+}
+
+.awt-page .help-text {
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+.awt-page .actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media (max-width: 767.98px) {
+  .awt-page .actions .btn {
+    width: 100%;
+  }
+}
+
