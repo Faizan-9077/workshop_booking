@@ -1,0 +1,65 @@
+/* Workshop Type List page styles */
+
+.wtl-page .header-row {
+  margin-bottom: 1rem;
+}
+
+.wtl-page .btn-add {
+  min-width: 200px;
+}
+
+.wtl-page .table thead th,
+.wtl-page .table tbody td {
+  vertical-align: middle;
+}
+
+/* Sticky header on desktop */
+@media (min-width: 992px) {
+  .wtl-page .table thead th {
+    position: sticky;
+    top: 70px; /* below fixed navbar */
+    background: #fff;
+    z-index: 1;
+  }
+
+  /* Sticky add button container */
+  .wtl-page .header-row {
+    position: sticky;
+    top: 70px;
+    z-index: 2;
+    background: #fff;
+    padding-top: 0.5rem;
+  }
+}
+
+.wtl-page .table thead th,
+.wtl-page .table tbody td {
+  vertical-align: middle;
+}
+
+/* Mobile card list */
+.wtl-page .type-card .label {
+  font-size: 0.8rem;
+  color: #6c757d;
+}
+
+.wtl-page .type-card .value {
+  font-weight: 600;
+}
+
+/* Compact card spacing */
+.wtl-page .type-card .card-body {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.wtl-page .type-card .btn i {
+  margin-right: 0.25rem;
+}
+
+@media (max-width: 767.98px) {
+  .wtl-page .btn-add {
+    width: 100%;
+  }
+}
+
