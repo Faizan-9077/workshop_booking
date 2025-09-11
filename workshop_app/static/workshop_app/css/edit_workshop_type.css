@@ -1,0 +1,63 @@
+/* Edit Workshop Type page styles */
+
+.ewt-page .form-card {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.ewt-page .form-label {
+  font-weight: 600;
+}
+
+.ewt-page .help-text {
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+.ewt-page .attachments-title {
+  margin-top: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.ewt-page .actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media (max-width: 767.98px) {
+  .ewt-page .actions .btn {
+    width: 100%;
+  }
+}
+
+/* Textarea sizing for better mobile experience */
+.ewt-page textarea.form-control {
+  min-height: 120px;
+}
+
+@media (max-width: 767.98px) {
+  .ewt-page textarea.form-control {
+    min-height: 100px;
+    max-height: 180px;
+  }
+}
+
+/* Add breathing room in attachments and before Save */
+.ewt-page .inline {
+  padding-top: 0.25rem;
+  padding-bottom: 0.5rem;
+}
+
+.ewt-page .inline .btn {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.ewt-page hr {
+  margin: 0.75rem 0;
+}
+
+.ewt-page .actions {
+  margin-top: 0.75rem;
+}
+

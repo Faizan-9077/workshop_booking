@@ -6,6 +6,7 @@
 {% endblock %}
 
 {% block extra-dependencies %}
+    <link rel="stylesheet" href="{% static 'workshop_app/css/edit_workshop_type.css' %}">
 {% endblock %}
 
 {% block extra-custom-scripts %}
@@ -14,88 +15,72 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container">
-        <h2 class="text-center m-2">View / Edit Workshop Type</h2>
-        <br>
-        <form method="post" enctype="multipart/form-data">
-            <div class="row my-3">
-                <div class="col-3 font-weight-bold">Workshop Name :</div>
-                <div class="col text-left">
-                    <div class="row">
-                        <div class="col">{{ form.name }}</div>
-                    </div>
-                    <div class="row m-1 text-danger">
-                        <div class="col">{{ form.name.errors }}</div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="row my-3">
-                <div class="col-3 font-weight-bold">Duration :</div>
-                <div class="col text-left">
-                    <div class="row">
-                        <div class="col">{{ form.duration }}</div>
-                    </div>
-                    <div class="row m-1 text-muted">
-                        <div class="col">{{ form.duration.help_text }}</div>
-                    </div>
-                    <div class="row m-1 text-danger">
-                        <div class="col">{{ form.duration.errors }}</div>
-                    </div>
-                </div>
-            </div>
-            <div class="row my-3">
-                <div class="col-3 font-weight-bold">Description :</div>
-                <div class="col text-left">
-                    <div class="row">
-                        <div class="col">{{ form.description }}</div>
-                    </div>
-                    <div class="row m-1 text-danger">
-                        <div class="col">{{ form.description.errors }}</div>
-                    </div>
-                </div>
-            </div>
-            <div class="row my-3">
-                <div class="col-3 font-weight-bold">Terms and Conditions :</div>
-                <div class="col text-left">
-                    <div class="row">
-                        <div class="col">{{ form.terms_and_conditions }}</div>
-                    </div>
-                    <div class="row m-1 text-danger">
-                        <div class="col">{{ form.terms_and_conditions.errors }}</div>
-                    </div>
-                </div>
-            </div>
-
-            <h2 class="text-center m-2">Attachments</h2>
-            {{ form_file.management_form }}
-            {{ form_file.non_form_errors }}
-            {% for form in form_file %}
-                <div class="inline {{ form_file.prefix }} my-4">
-                    <div class="row">
-                        <div class="col-11">
-                            {% for field in form %}
-                                <div class="col-6">{{ field }}</div>
-                            {% endfor %}
+    <div class="container ewt-page">
+        <h2 class="text-center my-3">View / Edit Workshop Type</h2>
+        <div class="card form-card shadow-sm">
+            <div class="card-body">
+                <form method="post" enctype="multipart/form-data">
+                    <div class="mb-3 row">
+                        <label class="col-md-3 col-form-label form-label">Workshop Name :</label>
+                        <div class="col-md-9">
+                            {{ form.name }}
+                            <div class="text-danger">{{ form.name.errors }}</div>
                         </div>
-                    {% if form.id.value %}
-                    <div class="col-1">
-                        <a href="{% url 'workshop_app:delete_attachment_file' form.id.value %}"><button class="btn btn-md btn-danger float-right" type="button">Delete</button></a>
-                    </div>
-                    {% endif %}
                     </div>
 
-                </div>
-                <hr>
-            {% endfor %}
-            <div class="row my-3">
-                <div class="col-12">
-                    <button type="submit" class="btn btn-md btn-primary float-right m-3">Save</button>
-                </div>
+                    <div class="mb-3 row">
+                        <label class="col-md-3 col-form-label form-label">Duration :</label>
+                        <div class="col-md-9">
+                            {{ form.duration }}
+                            <div class="help-text">{{ form.duration.help_text }}</div>
+                            <div class="text-danger">{{ form.duration.errors }}</div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label class="col-md-3 col-form-label form-label">Description :</label>
+                        <div class="col-md-9">
+                            {{ form.description }}
+                            <div class="text-danger">{{ form.description.errors }}</div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label class="col-md-3 col-form-label form-label">Terms and Conditions :</label>
+                        <div class="col-md-9">
+                            {{ form.terms_and_conditions }}
+                            <div class="text-danger">{{ form.terms_and_conditions.errors }}</div>
+                        </div>
+                    </div>
+
+                    <h4 class="text-center attachments-title">Attachments</h4>
+                    {{ form_file.management_form }}
+                    {{ form_file.non_form_errors }}
+                    {% for form in form_file %}
+                        <div class="inline {{ form_file.prefix }} my-3">
+                            <div class="row align-items-center">
+                                <div class="col-md-10">
+                                    {% for field in form %}
+                                        <div class="mb-2">{{ field }}</div>
+                                    {% endfor %}
+                                </div>
+                                {% if form.id.value %}
+                                <div class="col-md-2 text-end">
+                                    <a href="{% url 'workshop_app:delete_attachment_file' form.id.value %}"><button class="btn btn-danger w-100 w-md-auto" type="button">Delete</button></a>
+                                </div>
+                                {% endif %}
+                            </div>
+                            <hr>
+                        </div>
+                    {% endfor %}
+
+                    <div class="mt-3 actions">
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Save</button>
+                    </div>
+                </form>
             </div>
-        </form>
+        </div>
     </div>
-    <br><br><br><br>
     <script type="text/javascript">
         $(function () {
             $(".inline.{{ form_file.prefix }}").formset({
